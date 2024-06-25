@@ -11,9 +11,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>pet.declare</groupId>
-    <artifactId>pet.declare</artifactId>
-    <version>1.0-RELEASE</version>
+    <groupId>pet.declare.bom</groupId>
+    <artifactId>pet.declare-bom</artifactId>
+    <version>1.0.3-RELEASE</version>
 
     <packaging>pom</packaging>
 
@@ -44,6 +44,9 @@
         <version.mapstruct-lombok>0.2.0</version.mapstruct-lombok>
         <jaxb.version>2.4.0</jaxb.version>
         <awaitility.version>4.2.1</awaitility.version>
+        <eureka.version>4.1.2</eureka.version>
+        <spring.cloud.starter.version>4.1.1</spring.cloud.starter.version>
+        <spring-cloud.version>2023.0.2</spring-cloud.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -80,6 +83,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>${eureka.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -96,10 +104,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok-mapstruct-binding</artifactId>
             <version>${version.mapstruct-lombok}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.restdocs</groupId>
-            <artifactId>spring-restdocs-mockmvc</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -130,8 +134,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>${spring.cloud.starter.version}</version>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
